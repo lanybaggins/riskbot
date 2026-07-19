@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(riskbot_config.json)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Read(.env)",
+      "Read(**/.env)"
+    ]
+  }
+}

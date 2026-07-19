@@ -1,3 +1,6 @@
+#!/bin/bash
+set -eu
+
 screen -X -S riskbot kill
-wait 1
+sleep 1
 screen -dmL -S riskbot -Logfile riskbot.log node riskbot.js
