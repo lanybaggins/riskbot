@@ -16,7 +16,7 @@ commandsdev.push(command.data.toJSON());
 commands.push(command.data.toJSON());
 commandsmainserver.push(command.data.toJSON());
 
-const cheatCommand = require("./commands/imposter-cheat.js");
+const cheatCommand = require("./commands/impostercheat.js");
 commandsdev.push(cheatCommand.data.toJSON());
 commands.push(cheatCommand.data.toJSON());
 commandsmainserver.push(cheatCommand.data.toJSON());

@@ -44,8 +44,8 @@ COMPOSE_PROJECT_NAME=riskbot
 docker compose -f docker/compose.yml exec riskbot-dev node deploy-commands-lany.js
 ```
 
-7. `/imposter-cheat` is hidden from everyone by default (`default_member_permissions: 0`). Per-server, grant it
-   to whichever role(s) should have it via Server Settings > Integrations > riskbot > `/imposter-cheat`. This
+7. `/impostercheat` is hidden from everyone by default (`default_member_permissions: 0`). Per-server, grant it
+   to whichever role(s) should have it via Server Settings > Integrations > riskbot > `/impostercheat`. This
    is a one-time manual step per server, not config-driven — Discord doesn't let a bot push role permissions
    for a command via its own token.
 
