@@ -1,0 +1,33 @@
+services:
+  riskbot:
+    profiles: [ "prod" ]
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      args: { NODE_ENV: production }
+    image: riskbot:latest
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [ "/tmp" ]
+  restarter:
+    profiles: [ "prod" ]
+    image: docker:cli
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+    command: ["/bin/sh", "-c", "while true; do sleep 86400; docker restart riskbot_riskbot_1; done"]
+    restart: unless-stopped
+  riskbot-dev:
+    profiles: [ "dev" ]
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      args: { NODE_ENV: production }
+    image: riskbot:latest
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [ "/tmp" ]
+  restarter-dev:
+    profiles: [ "dev" ]
+    image: docker:cli
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+    command: ["/bin/sh", "-c", "while true; do sleep 86400; docker restart riskbot_riskbot-dev_1; done"]
+    restart: unless-stopped

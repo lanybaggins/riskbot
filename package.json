@@ -10,7 +10,7 @@
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
     "discord.js": "^14.25.1",
     "discord.js-pagination": "^1.0.3",
-    "express": "^4.19.2",
+    "express": "^4.22.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.3.0",
     "node-cron": "^3.0.2",

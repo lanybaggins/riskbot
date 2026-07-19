@@ -109,7 +109,7 @@ client.once(Events.ClientReady, () => {
 	//	undeployCommands(client, '716784438058418197');
 	refreshtournamentcalendar();
 	if (global.config.guilds.RISKDEV !== undefined) {
-		message_channel(client, global.config.guilds.RISKDEV, '1292848598337323109', "I just got restarted, feeling great!");
+		message_channel(client, global.config.guilds.RISKDEV, global.config.messagingChannel, "I just got restarted, feeling great!");
 	}
 
 	eventmanager1hourping(client);
@@ -230,6 +230,7 @@ client.on(Events.InteractionCreate, async interaction => {
 			}
 
 		} catch (error) {
+      console.error(error);
 			if (interaction.replied || interaction.deferred) {
 				await interaction.followUp({ content: 'There was an error while executing this command!', flags: 64 });
 			} else {
@@ -393,16 +394,13 @@ async function logcommand(interaction) {
 
 client.login(global.config.token);
 
-
-
-
-
 ///////////////////////////////
 //                           //
 // LOCAL WEBSERVER GOES HERE //
 //                           //
 ///////////////////////////////
 
+console.log("Starting Riskbot API webserver...");
 // Middleware to parse JSON bodies
 app.use(express.json());
 

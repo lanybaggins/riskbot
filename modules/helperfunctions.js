@@ -32,7 +32,7 @@ function httpsGetRequest(options) {
 async function add_to_thread(client, serverid, channelid, threadid, userid) {
 	try {
 
-		const guild = await client.guilds.fetch(serverid);
+    const guild = await client.guilds.fetch(serverid);
 		if (!guild) {
 			console.log('Guild not found');
 			return;
@@ -489,7 +489,7 @@ async function message_thread(client, msgserver, msgchannel, msgthread, msg, tus
 
 // API functions
 async function message_channel(client, msgserver, msgchannel, msg) {
-
+  console.log("Messaging channel:", msgserver, msgchannel, msg);
 	try {
 		const guild = await client.guilds.fetch(msgserver);
 		if (!guild) {

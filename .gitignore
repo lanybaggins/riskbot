@@ -9,6 +9,7 @@
 riskbot_config.json
 riskbot_key.json
 riskbot.log
+docker/.env
 .ssh/*
 .copilot/*
 .cache/*
