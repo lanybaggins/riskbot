@@ -12,7 +12,12 @@ upstream author's setup (separate prod/dev hosts, `deploy-commands.js`) — that
 
 ## Setup
 
-1. Create `riskbot_config.json` per `README` (config keys, token, guild IDs).
+1. Create `riskbot_config.json` per `README` (config keys, token, guild IDs).  Add the extra key:
+```json
+  "imposter": {
+    "allowDev": ["415848204136087563"]
+  }
+```
 
 2. Create a copy of `./docker/.env.sample` as `./docker/.env`:
 ```bash
@@ -38,6 +43,11 @@ COMPOSE_PROJECT_NAME=riskbot
 ```bash
 docker compose -f docker/compose.yml exec riskbot-dev node deploy-commands-lany.js
 ```
+
+7. `/imposter-cheat` is hidden from everyone by default (`default_member_permissions: 0`). Per-server, grant it
+   to whichever role(s) should have it via Server Settings > Integrations > riskbot > `/imposter-cheat`. This
+   is a one-time manual step per server, not config-driven — Discord doesn't let a bot push role permissions
+   for a command via its own token.
 
 ## Automatic restarts
 

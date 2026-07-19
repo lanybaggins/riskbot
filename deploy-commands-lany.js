@@ -16,6 +16,11 @@ commandsdev.push(command.data.toJSON());
 commands.push(command.data.toJSON());
 commandsmainserver.push(command.data.toJSON());
 
+const cheatCommand = require("./commands/imposter-cheat.js");
+commandsdev.push(cheatCommand.data.toJSON());
+commands.push(cheatCommand.data.toJSON());
+commandsmainserver.push(cheatCommand.data.toJSON());
+
 const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
